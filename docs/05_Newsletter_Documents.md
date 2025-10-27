@@ -1,8 +1,8 @@
 # Newsletter Document
 
-Newsletter documents are the way to create and send newsletters directly within Pimcore. 
-They are based on the normal Pimcore documents and therefore support everything as pages do - starting from MVC pattern 
-and template creation to document composing within Pimcore backend with areas, drag&drop etc. 
+Newsletter documents are the way to create and send newsletters directly within OpenDxp. 
+They are based on the normal OpenDxp documents and therefore support everything as pages do - starting from MVC pattern 
+and template creation to document composing within OpenDxp backend with areas, drag&drop etc. 
 
 
 ## Additional Settings
@@ -11,7 +11,7 @@ Newsletter documents provide following additional settings compared to default d
 ![Newsletter settings](./img/newsletter_settings.png)
 
   - Subject: Subject of the newsletter.
-  - From: From-Address of the newsletter. As fallback, Pimcore system settings are used. 
+  - From: From-Address of the newsletter. As fallback, OpenDxp system settings are used. 
   - Add Tracking Parameters to Links: Adds tracking parameters to all links within the newsletter. 
   - Tracking Parameter 'Source', 'Medium', 'Name': Values for the tracking parameters. 
   - Sending Mode: 
@@ -25,12 +25,12 @@ The Newsletter Sending Panel provides the functionality for sending the newslett
 
 ### Address Source Adapter
 The Address Source Adapter is responsible for extracting the email addresses the newsletter should be sent to. It has to 
-be selected before another action can take place. Currently following adapters ship with Pimcore. It is easily possible 
+be selected before another action can take place. Currently following adapters ship with OpenDxp. It is easily possible 
 to integrate custom adapters - see section below.
-- Default Object List: Extracts email addresses based on Pimcore objects.  
+- Default Object List: Extracts email addresses based on OpenDxp objects.  
 - CSV List: Uses a CSV as source for email addresses. 
 - Column from a report: Uses a custom report as source for email adresses. 
-  - Please make sure to enable the PimcoreCustomReportsBundle before you use this feature. 
+  - Please make sure to enable the OpenDxpCustomReportsBundle before you use this feature. 
  
 
 ### Test Sending
@@ -39,7 +39,7 @@ Once a Address Source Adapter is selected, a test sending to a specified email a
 
 ### Sending the Newsletter
 With `Send Newsletter Now` the newsletter is sent to all recipients. The sending itself is done based on the system 
-settings of Pimcore. There you also can configure an external SMTP sending service for mass mail sending. 
+settings of OpenDxp. There you also can configure an external SMTP sending service for mass mail sending. 
 
 
 ## Creating a Custom Address Source Adapter
@@ -53,11 +53,11 @@ the email addresses. It needs to implement the interface `AddressSourceAdapterIn
 - Register your Adapter Source Factory as Service. If you are using a very simple Adapter Source, you can use the DefaultFactory
   ```yml
   app.document.newsletter.factory.myAdapter:
-      class: Pimcore\Document\Newsletter\DefaultAddressSourceAdapterFactory
+      class: OpenDxp\Document\Newsletter\DefaultAddressSourceAdapterFactory
       arguments:
         - 'App\Document\Newsletter\AddressSourceAdapter\MyAdapter'
   ```
-- If you are using a more complex Source Adapter, you can create your own Factory by implementing the interface Pimcore\Document\Newsletter\AddressSourceAdapterFactoryInterface
+- If you are using a more complex Source Adapter, you can create your own Factory by implementing the interface OpenDxp\Document\Newsletter\AddressSourceAdapterFactoryInterface
 - Add your Adapter Factory to the configuration:
 
 ```yml

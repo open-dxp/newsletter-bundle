@@ -6,8 +6,8 @@ in the system (products, ...).
 The content of the e-mail is rendered individually for every recipient (the user object is available in the action and view),
 this gives you the absolute freedom for your content.
 
-The newsletter framework is just a wrapper for existing functionality in Pimcore.
-This makes it easy to use and gives you all the advantages Pimcore offers you.
+The newsletter framework is just a wrapper for existing functionality in OpenDxp.
+This makes it easy to use and gives you all the advantages OpenDxp offers you.
 
 The newsletter content is assembled in an *Newsletter* document.
 Therefore, your newsletter template is just a simple action and view. In the view you can use all features known
@@ -68,9 +68,9 @@ For example, `\NewsletterController`: `src/Controllers/NewsletterController.php`
 
 namespace App\Controller;
 
-use Pimcore\Bundle\NewsletterBundle\Tool\Newsletter;
-use Pimcore\Controller\FrontendController;
-use Pimcore\Model;
+use OpenDxp\Bundle\NewsletterBundle\Tool\Newsletter;
+use OpenDxp\Controller\FrontendController;
+use OpenDxp\Model;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -266,7 +266,7 @@ The unsubscribe action view: `templates/Newsletter/unsubscribe.html.twig`
 
 ### Confirmation E-Mail
 
-The confirmation e-mail (See: `\Pimcore\Tool\Newsletter::sendConfirmationMail`) is a simple e-mail document.
+The confirmation e-mail (See: `\OpenDxp\Tool\Newsletter::sendConfirmationMail`) is a simple e-mail document.
 
 In this document the following Twig parameters are available:
 

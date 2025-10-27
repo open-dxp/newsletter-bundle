@@ -14,14 +14,14 @@ Enable bundle in `config/bundles.php`:
 ```php
 return [
     ...
-    Pimcore\Bundle\NewsletterBundle\PimcoreNewsletterBundle::class => ['all' => true],
+    OpenDxp\Bundle\NewsletterBundle\OpenDxpNewsletterBundle::class => ['all' => true],
     ...
 ];
 ```
 
 Install bundle via console:
 ```bash
-php bin/console opendxp:bundle:install PimcoreNewsletterBundle
+php bin/console opendxp:bundle:install OpenDxpNewsletterBundle
 ```
 
 Check if the bundle has been installed:
@@ -30,7 +30,7 @@ php bin/console opendxp:bundle:list
 +---------------------------------+---------+-----------+----+-----+-----+
 | Bundle                          | Enabled | Installed | I? | UI? | UP? |
 +---------------------------------+---------+-----------+----+-----+-----+
-| PimcoreNewsletterBundle         | ✔      | ✔       | ❌  | ✔  | ❌   |
+| OpenDxpNewsletterBundle         | ✔      | ✔       | ❌  | ✔  | ❌   |
 +---------------------------------+---------+-----------+----+-----+-----+
 ```
 
@@ -46,7 +46,7 @@ framework:
             opendxp_newsletter: smtp://user:pass@smtp.example.com:port
     messenger:
         routing:
-            'Pimcore\Bundle\NewsletterBundle\Messenger\SendNewsletterMessage': opendxp_core
+            'OpenDxp\Bundle\NewsletterBundle\Messenger\SendNewsletterMessage': opendxp_core
 ```
 
 ```yaml
@@ -87,7 +87,7 @@ This bundle introduces a new document type:
 |------------------------------------------------|-----------------------------------------------|
 | [Newsletter](./05_Newsletter_Documents.md) | Like an email but specialized for newsletter |
 
-## Pimcore Twig Extensions
+## OpenDxp Twig Extensions
 This bundle also adds a new twig extension. For more information checkout the main documentation
 
 | Test                      | Description                                                                      |
