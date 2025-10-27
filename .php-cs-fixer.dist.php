@@ -17,17 +17,17 @@ $config->setRules([
 
     'header_comment'         => [
         'comment_type' => 'PHPDoc',
-        'header' => 'Pimcore' . PHP_EOL . PHP_EOL .
-            'This source file is available under two different licenses:' . PHP_EOL .
-            '- GNU General Public License version 3 (GPLv3)' . PHP_EOL .
-            '- Pimcore Commercial License (PCL)' . PHP_EOL .
+         'header' => 'OpenDXP' . PHP_EOL
+            . PHP_EOL .
+            'This source file is licensed under the GNU General Public License version 3 (GPLv3).' . PHP_EOL
+            . PHP_EOL .
             'Full copyright and license information is available in' . PHP_EOL .
-            'LICENSE.md which is distributed with this source code.' . PHP_EOL .
-            PHP_EOL .
-            ' @copyright  Copyright (c) Pimcore GmbH (http://www.pimcore.org)' . PHP_EOL .
-            ' @license    http://www.pimcore.org/license     GPLv3 and PCL'
+            'LICENSE.md which is distributed with this source code.' . PHP_EOL
+            . PHP_EOL .
+            '@copyright  Copyright (c) Pimcore GmbH (https://pimcore.com)' . PHP_EOL .
+            '@copyright  Modification Copyright (c) OpenDXP (https://www.opendxp.ch)' . PHP_EOL .
+            '@license    https://www.gnu.org/licenses/gpl-3.0.html  GNU General Public License version 3 (GPLv3)'
     ],
-
     'blank_line_before_statement'         => true,
     'encoding'                            => true,
     'function_typehint_space'             => true,
