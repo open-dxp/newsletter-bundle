@@ -281,15 +281,9 @@ In the document editmode you can create the confirmation email by choosing **Add
 
 ![Create email document](./img/newsletter_create_document_confirmation.png)
 
-The editmode is of course quite similar to other document types:
-
-![Editing the email document](./img/newsletter_confirmation_document_editmode.png)
-
 
 To define the confirmation URL in editmode. You have to add controller / action and token information.
-In the picture, you can see how you would add a token  to the URL.
-
-![The email document - a variable placeholder](./img/newsletter_token_url.png)
+You can then simply append the token to the URL in you template by referencing to the `token` variable e.g. `{{ token }}`.
 
 
 ### Sending Newsletters
@@ -318,10 +312,6 @@ $firstname = $userObject->getFirstname();
 $lastname = $userObject->getLastname();
 ...
 ```
-
-In the example below, you can find out how to add the unsubscribe link and how to use firstname in the content.
-
-![Newsletter - mailing, using variables](./img/newsletter_mailing_example.png)
 
 ### Send a Test Message
 

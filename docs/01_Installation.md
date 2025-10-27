@@ -83,13 +83,13 @@ See [Newsletter Config](./19_Newsletter_Config.md) for a complete example and ho
 ## Document Types
 This bundle introduces a new document type:
 
-| Type                                           | Description                                   |
-|------------------------------------------------|-----------------------------------------------|
+| Type                                       | Description                                  |
+|--------------------------------------------|----------------------------------------------|
 | [Newsletter](./05_Newsletter_Documents.md) | Like an email but specialized for newsletter |
 
 ## OpenDxp Twig Extensions
 This bundle also adds a new twig extension. For more information checkout the main documentation
 
-| Test                      | Description                                                                      |
-|---------------------------|----------------------------------------------------------------------------------|
-| `opendxp_document_newsletter`          | Checks if object is instanceof Newsletter                  |
+| Test                          | Description                               |
+|-------------------------------|-------------------------------------------|
+| `opendxp_document_newsletter` | Checks if object is instanceof Newsletter |
