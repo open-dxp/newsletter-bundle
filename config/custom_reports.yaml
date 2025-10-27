@@ -1,0 +1,13 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  opendxp_newsletter.document.newsletter.factory.report:
+    class: OpenDxp\Bundle\NewsletterBundle\CustomReports\Tool\Adapter\ReportAddressSourceAdapterFactory
+    arguments:
+      - '@opendxp.custom_report.adapter.factories'
+
+opendxp_newsletter:
+  source_adapters:
+    reportAdapter: opendxp_newsletter.document.newsletter.factory.report

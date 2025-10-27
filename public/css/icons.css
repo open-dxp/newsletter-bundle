@@ -1,0 +1,11 @@
+.opendxp_icon_newsletter {
+    background: url(/bundles/opendxpadmin/img/flat-color-icons/feedback.svg) center center no-repeat !important;
+}
+
+.opendxp_icon_newsletterActive {
+    background: url(/bundles/opendxpadmin/img/flat-color-icons/invite.svg) center center no-repeat !important;
+}
+
+.opendxp_icon_newsletterConfirmed {
+    background: url(/bundles/opendxpadmin/img/flat-color-icons/feedback.svg) center center no-repeat !important;
+}

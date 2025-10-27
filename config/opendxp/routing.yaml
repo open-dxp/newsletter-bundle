@@ -1,0 +1,6 @@
+_opendxp_bundle_newsletter_document:
+    resource: "../../src/Controller/Document/"
+    type:     attribute
+    prefix:   /admin/bundle/newsletter/document
+    options:
+        expose: true
