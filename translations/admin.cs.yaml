@@ -9,7 +9,7 @@ newsletter_send_error: "Newsletter se nepoda\u0159ilo odeslat, kontaktujte sv\xE
   administr\xE1tora pros\xEDm!"
 newsletter_sent_message: "V\xE1\u0161 newsletter je rozes\xEDl\xE1n v\u0161em p\u0159\xEDjemc\u016Fm
   v procesu na pozad\xED (m\u016F\u017Eete po\u010Das n\u011Bj zav\u0159\xEDt administraci
-  Pimcore) a m\u016F\u017Ee trvat a\u017E hodinu."
+  OpenDXP) a m\u016F\u017Ee trvat a\u017E hodinu."
 do_you_really_want_to_send_the_newsletter_to_all_recipients: "Opravdu si p\u0159ejete
   odeslat newsletter v\u0161em p\u0159\xEDjemc\u016Fm"
 newsletter_enableTrackingParameters: "P\u0159idat trackovac\xED parametry k odkaz\u016Fm"
