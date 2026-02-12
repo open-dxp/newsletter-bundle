@@ -8,7 +8,7 @@ send_test_newsletter: Testnieuwsbrief verzenden
 newsletter_send_error: Nieuwsbrief kan niet worden verstuurd, neem contact op met
   de beheerder!
 newsletter_sent_message: De nieuwsbrief wordt nu verstuurd naar alle ontvangers. Dit
-  proces loopt in de achtergrond (Pimcore kan worden gesloten in de tussentijd) en
+  proces loopt in de achtergrond (OpenDXP kan worden gesloten in de tussentijd) en
   kan tot 1 uur duren.
 do_you_really_want_to_send_the_newsletter_to_all_recipients: Weet u zeker dat u de
   nieuwsbrief naar alle adressen wilt versturen?
