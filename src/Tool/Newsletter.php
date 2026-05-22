@@ -10,12 +10,13 @@ declare(strict_types=1);
  * LICENSE.md which is distributed with this source code.
  *
  * @copyright  Copyright (c) Pimcore GmbH (https://pimcore.com)
- * @copyright  Modification Copyright (c) OpenDXP (https://www.opendxp.ch)
+ * @copyright  Modification Copyright (c) OpenDXP (https://www.opendxp.io)
  * @license    https://www.gnu.org/licenses/gpl-3.0.html  GNU General Public License version 3 (GPLv3)
  */
 
 namespace OpenDxp\Bundle\NewsletterBundle\Tool;
 
+use DOMElement;
 use Exception;
 use InvalidArgumentException;
 use OpenDxp;
@@ -35,6 +36,7 @@ use Symfony\Component\EventDispatcher\GenericEvent;
 class Newsletter
 {
     public const string SENDING_MODE_BATCH = 'batch';
+
     public const string SENDING_MODE_SINGLE = 'single';
 
     protected DataObject\ClassDefinition $class;
@@ -94,7 +96,7 @@ class Newsletter
         if ($contentHTML && $newsletterDocument->getEnableTrackingParameters()) {
             $html = new DomCrawler($contentHTML);
             $links = $html->filter('a');
-            /** @var \DOMElement $link */
+            /** @var DOMElement $link */
             foreach ($links as $link) {
                 if (preg_match('/^(mailto|#)/i', trim($link->getAttribute('href')))) {
                     // No tracking for mailto and hash only links

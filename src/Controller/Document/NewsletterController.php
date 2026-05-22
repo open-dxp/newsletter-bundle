@@ -10,7 +10,7 @@ declare(strict_types=1);
  * LICENSE.md which is distributed with this source code.
  *
  * @copyright  Copyright (c) Pimcore GmbH (https://pimcore.com)
- * @copyright  Modification Copyright (c) OpenDXP (https://www.opendxp.ch)
+ * @copyright  Modification Copyright (c) OpenDXP (https://www.opendxp.io)
  * @license    https://www.gnu.org/licenses/gpl-3.0.html  GNU General Public License version 3 (GPLv3)
  */
 
@@ -305,7 +305,7 @@ class NewsletterController extends DocumentControllerBase
 
         $addressSourceAdapterName = $request->request->getString('addressAdapterName');
         $adapterParams = json_decode($request->request->getString('adapterParams'), true);
-        $serviceLocator = \OpenDxp::getContainer()->get('opendxp_newsletter.address_source_adapter.factories');
+        $serviceLocator = OpenDxp::getContainer()->get('opendxp_newsletter.address_source_adapter.factories');
 
         if (!$serviceLocator->has($addressSourceAdapterName)) {
             $msg = sprintf(
@@ -346,7 +346,7 @@ class NewsletterController extends DocumentControllerBase
             ]);
         }
 
-        $serviceLocator = \OpenDxp::getContainer()->get('opendxp_newsletter.address_source_adapter.factories');
+        $serviceLocator = OpenDxp::getContainer()->get('opendxp_newsletter.address_source_adapter.factories');
 
         if (!$serviceLocator->has($addressSourceAdapterName)) {
             return $this->adminJson([
@@ -367,7 +367,7 @@ class NewsletterController extends DocumentControllerBase
         try {
             $mail = NewsletterTool::prepareMail($document, $sendingContainer);
             NewsletterTool::sendNewsletterDocumentBasedMail($mail, $sendingContainer);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return $this->adminJson([
                 'success' => false,
                 'error' => $e->getMessage(),

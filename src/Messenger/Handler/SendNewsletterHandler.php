@@ -10,12 +10,14 @@ declare(strict_types=1);
  * LICENSE.md which is distributed with this source code.
  *
  * @copyright  Copyright (c) Pimcore GmbH (https://pimcore.com)
- * @copyright  Modification Copyright (c) OpenDXP (https://www.opendxp.ch)
+ * @copyright  Modification Copyright (c) OpenDXP (https://www.opendxp.io)
  * @license    https://www.gnu.org/licenses/gpl-3.0.html  GNU General Public License version 3 (GPLv3)
  */
 
 namespace OpenDxp\Bundle\NewsletterBundle\Messenger\Handler;
 
+use Exception;
+use OpenDxp;
 use OpenDxp\Bundle\NewsletterBundle\Document\Newsletter\AddressSourceAdapterFactoryInterface;
 use OpenDxp\Bundle\NewsletterBundle\Document\Newsletter\AddressSourceAdapterInterface;
 use OpenDxp\Bundle\NewsletterBundle\Messenger\SendNewsletterMessage;
@@ -23,6 +25,7 @@ use OpenDxp\Bundle\NewsletterBundle\Model\Document\Newsletter;
 use OpenDxp\Bundle\NewsletterBundle\Tool\Newsletter as NewsletterTool;
 use OpenDxp\Logger;
 use OpenDxp\Model\Tool\TmpStore;
+use RuntimeException;
 use Symfony\Contracts\Service\ServiceProviderInterface;
 
 /**
@@ -65,7 +68,7 @@ class SendNewsletterHandler
         $adapterParams = $data['adapterParams'];
 
         if (!$this->addressProvider->has($addressSourceAdapterName)) {
-            throw new \RuntimeException(
+            throw new RuntimeException(
                 sprintf(
                     'Cannot send newsletters because Address Source Adapter with identifier %s could not be found',
                     $addressSourceAdapterName
@@ -87,7 +90,7 @@ class SendNewsletterHandler
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     protected function doSendMailInBatchMode(
         Newsletter $document,
@@ -128,12 +131,12 @@ class SendNewsletterHandler
                 $data['progress'] = round($currentCount / $totalCount * 100, 2);
                 $tmpStore->setData($data);
                 $tmpStore->update();
-                \OpenDxp::collectGarbage();
+                OpenDxp::collectGarbage();
             }
 
             try {
                 NewsletterTool::sendNewsletterDocumentBasedMail($mail, $sendingParamContainer);
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 Logger::err(sprintf('Exception while sending newsletter: %s', $e->getMessage()));
             }
 
@@ -187,7 +190,7 @@ class SendNewsletterHandler
                 try {
                     $mail = NewsletterTool::prepareMail($document, $sendingParamContainer, $hostUrl);
                     NewsletterTool::sendNewsletterDocumentBasedMail($mail, $sendingParamContainer);
-                } catch (\Exception $e) {
+                } catch (Exception $e) {
                     Logger::err(sprintf('Exception while sending newsletter: %s', $e->getMessage()));
                 }
 
@@ -197,7 +200,7 @@ class SendNewsletterHandler
             $offset += $limit;
             $hasElements = count($sendingParamContainers);
 
-            \OpenDxp::collectGarbage();
+            OpenDxp::collectGarbage();
         }
     }
 }

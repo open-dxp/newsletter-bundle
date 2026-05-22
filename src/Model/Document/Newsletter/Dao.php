@@ -9,14 +9,16 @@
  * LICENSE.md which is distributed with this source code.
  *
  * @copyright  Copyright (c) Pimcore GmbH (https://pimcore.com)
- * @copyright  Modification Copyright (c) OpenDXP (https://www.opendxp.ch)
+ * @copyright  Modification Copyright (c) OpenDXP (https://www.opendxp.io)
  * @license    https://www.gnu.org/licenses/gpl-3.0.html  GNU General Public License version 3 (GPLv3)
  */
 
 namespace OpenDxp\Bundle\NewsletterBundle\Model\Document\Newsletter;
 
+use Exception;
 use OpenDxp\Bundle\NewsletterBundle\Model\Document\Newsletter;
 use OpenDxp\Model;
+use Override;
 
 /**
  * @internal
@@ -31,7 +33,7 @@ class Dao extends Model\Document\Email\Dao
      *
      * @throws Model\Exception\NotFoundException
      */
-    #[\Override]
+    #[Override]
     public function getById(?int $id = null): void
     {
         if ($id != null) {
@@ -50,7 +52,7 @@ class Dao extends Model\Document\Email\Dao
         }
     }
 
-    #[\Override]
+    #[Override]
     public function create(): void
     {
         parent::create();
@@ -63,9 +65,9 @@ class Dao extends Model\Document\Email\Dao
     /**
      * Deletes the object (and data) from database
      *
-     * @throws \Exception
+     * @throws Exception
      */
-    #[\Override]
+    #[Override]
     public function delete(): void
     {
         $this->deleteAllProperties();

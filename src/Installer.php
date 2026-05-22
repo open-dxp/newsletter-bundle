@@ -10,16 +10,18 @@ declare(strict_types=1);
  * LICENSE.md which is distributed with this source code.
  *
  * @copyright  Copyright (c) Pimcore GmbH (https://pimcore.com)
- * @copyright  Modification Copyright (c) OpenDXP (https://www.opendxp.ch)
+ * @copyright  Modification Copyright (c) OpenDXP (https://www.opendxp.io)
  * @license    https://www.gnu.org/licenses/gpl-3.0.html  GNU General Public License version 3 (GPLv3)
  */
 
 namespace OpenDxp\Bundle\NewsletterBundle;
 
 use Doctrine\DBAL\ArrayParameterType;
+use Exception;
 use OpenDxp\Db;
 use OpenDxp\Extension\Bundle\Installer\SettingsStoreAwareInstaller;
 use OpenDxp\Model\Tool\SettingsStore;
+use Override;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -48,7 +50,7 @@ class Installer extends SettingsStoreAwareInstaller
         'newsletters',
     ];
 
-    #[\Override]
+    #[Override]
     public function install(): void
     {
         $this->installDatabaseTable();
@@ -58,7 +60,7 @@ class Installer extends SettingsStoreAwareInstaller
         parent::install();
     }
 
-    #[\Override]
+    #[Override]
     public function uninstall(): void
     {
         // Only remove doctypes. Cleanup can be done by dev or command
@@ -121,7 +123,7 @@ class Installer extends SettingsStoreAwareInstaller
             $typeColumn = $result->fetchAllAssociative();
 
             return explode("','", (string) preg_replace("/(enum)\('(.+?)'\)/", '\\2', (string) $typeColumn[0]['Type']));
-        } catch (\Exception) {
+        } catch (Exception) {
             // nothing to do here if it does not work we return the standard types
         }
 

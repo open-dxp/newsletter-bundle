@@ -10,7 +10,7 @@ declare(strict_types=1);
  * LICENSE.md which is distributed with this source code.
  *
  * @copyright  Copyright (c) Pimcore GmbH (https://pimcore.com)
- * @copyright  Modification Copyright (c) OpenDXP (https://www.opendxp.ch)
+ * @copyright  Modification Copyright (c) OpenDXP (https://www.opendxp.io)
  * @license    https://www.gnu.org/licenses/gpl-3.0.html  GNU General Public License version 3 (GPLv3)
  */
 
@@ -19,6 +19,7 @@ namespace OpenDxp\Bundle\NewsletterBundle\Model\Document;
 use OpenDxp\Bundle\NewsletterBundle\Model\Document\Newsletter\Dao;
 use OpenDxp\Bundle\NewsletterBundle\Tool\Newsletter as NewsletterTool;
 use OpenDxp\Model\Document\Email;
+use Override;
 
 /**
  * @method Dao getDao()
@@ -83,7 +84,7 @@ class Newsletter extends Email
      *
      * @return $this
      */
-    #[\Override]
+    #[Override]
     public function setSubject(string $subject): static
     {
         $this->subject = $subject;
@@ -93,9 +94,8 @@ class Newsletter extends Email
 
     /**
      * Returns the email subject
-     *
      */
-    #[\Override]
+    #[Override]
     public function getSubject(): string
     {
         return $this->subject;
@@ -107,7 +107,7 @@ class Newsletter extends Email
      *
      * @return $this
      */
-    #[\Override]
+    #[Override]
     public function setFrom(string $from): static
     {
         $this->from = $from;
@@ -130,7 +130,6 @@ class Newsletter extends Email
 
     /**
      * Returns the email plain text part
-     *
      */
     public function getPlaintext(): string
     {
@@ -139,9 +138,8 @@ class Newsletter extends Email
 
     /**
      * Returns the "from" email address
-     *
      */
-    #[\Override]
+    #[Override]
     public function getFrom(): string
     {
         return $this->from;
@@ -179,7 +177,6 @@ class Newsletter extends Email
 
     /**
      * returns key by default
-     *
      */
     public function getTrackingParameterName(): ?string
     {
@@ -207,7 +204,6 @@ class Newsletter extends Email
 
     /**
      * @internal
-     *
      */
     public function getTmpStoreId(): string
     {
