@@ -27,11 +27,8 @@ use Symfony\Component\DependencyInjection\ServiceLocator;
  */
 final readonly class ReportAddressSourceAdapterFactory implements AddressSourceAdapterFactoryInterface
 {
-    private ServiceLocator $reportAdapterServiceLocator;
-
-    public function __construct(ServiceLocator $reportAdapterServiceLocator)
+    public function __construct(private readonly ServiceLocator $reportAdapterServiceLocator)
     {
-        $this->reportAdapterServiceLocator = $reportAdapterServiceLocator;
     }
 
     public function create(array $params): ReportAdapter|AddressSourceAdapterInterface

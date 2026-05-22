@@ -34,9 +34,8 @@ use Symfony\Component\EventDispatcher\GenericEvent;
 
 class Newsletter
 {
-    public const SENDING_MODE_BATCH = 'batch';
-
-    public const SENDING_MODE_SINGLE = 'single';
+    public const string SENDING_MODE_BATCH = 'batch';
+    public const string SENDING_MODE_SINGLE = 'single';
 
     protected DataObject\ClassDefinition $class;
 
@@ -55,9 +54,7 @@ class Newsletter
             throw new InvalidArgumentException('No valid class identifier given (class name or ID)');
         }
 
-        if ($class instanceof DataObject\ClassDefinition) {
-            $this->setClass($class);
-        }
+        $this->setClass($class);
     }
 
     /**

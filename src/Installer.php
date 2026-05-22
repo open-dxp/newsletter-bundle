@@ -25,11 +25,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class Installer extends SettingsStoreAwareInstaller
 {
-    protected const SETTINGS_STORE_SCOPE = 'opendxp_document_types';
+    protected const string SETTINGS_STORE_SCOPE = 'opendxp_document_types';
 
-    protected const DOCTYPE = 'newsletter';
+    protected const string DOCTYPE = 'newsletter';
 
-    protected const STANDARD_DOCUMENT_ENUM_TYPES = [
+    protected const array STANDARD_DOCUMENT_ENUM_TYPES = [
         'page',
         'link',
         'snippet',
@@ -38,13 +38,13 @@ class Installer extends SettingsStoreAwareInstaller
         'email',
     ];
 
-    protected const BUNDLE_EXTRA_DOCUMENT_ENUM_TYPES = [
+    protected const array BUNDLE_EXTRA_DOCUMENT_ENUM_TYPES = [
         'newsletter',
     ];
 
-    protected const USER_PERMISSION_CATEGORY = 'OpenDxp Newsletter Bundle';
+    protected const string USER_PERMISSION_CATEGORY = 'OpenDxp Newsletter Bundle';
 
-    protected const USER_PERMISSIONS = [
+    protected const array USER_PERMISSIONS = [
         'newsletters',
     ];
 
