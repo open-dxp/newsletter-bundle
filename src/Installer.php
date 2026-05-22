@@ -48,6 +48,7 @@ class Installer extends SettingsStoreAwareInstaller
         'newsletters',
     ];
 
+    #[\Override]
     public function install(): void
     {
         $this->installDatabaseTable();
@@ -57,6 +58,7 @@ class Installer extends SettingsStoreAwareInstaller
         parent::install();
     }
 
+    #[\Override]
     public function uninstall(): void
     {
         // Only remove doctypes. Cleanup can be done by dev or command
@@ -118,7 +120,7 @@ class Installer extends SettingsStoreAwareInstaller
             $result = $db->executeQuery("SHOW COLUMNS FROM `documents` LIKE 'type'");
             $typeColumn = $result->fetchAllAssociative();
 
-            return explode("','", preg_replace("/(enum)\('(.+?)'\)/", '\\2', $typeColumn[0]['Type']));
+            return explode("','", (string) preg_replace("/(enum)\('(.+?)'\)/", '\\2', (string) $typeColumn[0]['Type']));
         } catch (\Exception) {
             // nothing to do here if it does not work we return the standard types
         }

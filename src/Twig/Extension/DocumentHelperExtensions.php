@@ -26,12 +26,11 @@ use Twig\TwigTest;
  */
 class DocumentHelperExtensions extends AbstractExtension
 {
+    #[\Override]
     public function getTests(): array
     {
         return [
-            new TwigTest('opendxp_document_newsletter', static function ($object) {
-                return $object instanceof Newsletter;
-            }),
+            new TwigTest('opendxp_document_newsletter', static fn($object) => $object instanceof Newsletter),
         ];
     }
 }

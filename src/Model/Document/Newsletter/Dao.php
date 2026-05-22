@@ -31,6 +31,7 @@ class Dao extends Model\Document\Email\Dao
      *
      * @throws Model\Exception\NotFoundException
      */
+    #[\Override]
     public function getById(?int $id = null): void
     {
         if ($id != null) {
@@ -49,6 +50,7 @@ class Dao extends Model\Document\Email\Dao
         }
     }
 
+    #[\Override]
     public function create(): void
     {
         parent::create();
@@ -63,6 +65,7 @@ class Dao extends Model\Document\Email\Dao
      *
      * @throws \Exception
      */
+    #[\Override]
     public function delete(): void
     {
         $this->deleteAllProperties();

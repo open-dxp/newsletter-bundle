@@ -25,10 +25,6 @@ use OpenDxp\Bundle\NewsletterBundle\Document\Newsletter\SendingParamContainer;
  */
 final class ReportAdapter implements AddressSourceAdapterInterface
 {
-    protected string $emailFieldName;
-
-    protected CustomReportAdapterInterface $reportAdapter;
-
     /**
      * @var string[]
      */
@@ -38,10 +34,8 @@ final class ReportAdapter implements AddressSourceAdapterInterface
 
     protected ?array $list = null;
 
-    public function __construct(string $emailFieldName, CustomReportAdapterInterface $reportAdapter)
+    public function __construct(protected string $emailFieldName, protected CustomReportAdapterInterface $reportAdapter)
     {
-        $this->emailFieldName = $emailFieldName;
-        $this->reportAdapter = $reportAdapter;
     }
 
     protected function getListing(): array

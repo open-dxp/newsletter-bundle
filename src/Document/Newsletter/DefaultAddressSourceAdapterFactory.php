@@ -19,13 +19,10 @@ namespace OpenDxp\Bundle\NewsletterBundle\Document\Newsletter;
 /**
  * @internal
  */
-final class DefaultAddressSourceAdapterFactory implements AddressSourceAdapterFactoryInterface
+final readonly class DefaultAddressSourceAdapterFactory implements AddressSourceAdapterFactoryInterface
 {
-    private string $className;
-
-    public function __construct(string $className)
+    public function __construct(private string $className)
     {
-        $this->className = $className;
     }
 
     public function create(array $params): AddressSourceAdapterInterface

@@ -25,7 +25,7 @@ use Symfony\Component\DependencyInjection\ServiceLocator;
 /**
  * @internal
  */
-final class ReportAddressSourceAdapterFactory implements AddressSourceAdapterFactoryInterface
+final readonly class ReportAddressSourceAdapterFactory implements AddressSourceAdapterFactoryInterface
 {
     private ServiceLocator $reportAdapterServiceLocator;
 

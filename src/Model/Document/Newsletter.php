@@ -83,6 +83,7 @@ class Newsletter extends Email
      *
      * @return $this
      */
+    #[\Override]
     public function setSubject(string $subject): static
     {
         $this->subject = $subject;
@@ -94,6 +95,7 @@ class Newsletter extends Email
      * Returns the email subject
      *
      */
+    #[\Override]
     public function getSubject(): string
     {
         return $this->subject;
@@ -105,6 +107,7 @@ class Newsletter extends Email
      *
      * @return $this
      */
+    #[\Override]
     public function setFrom(string $from): static
     {
         $this->from = $from;
@@ -138,6 +141,7 @@ class Newsletter extends Email
      * Returns the "from" email address
      *
      */
+    #[\Override]
     public function getFrom(): string
     {
         return $this->from;

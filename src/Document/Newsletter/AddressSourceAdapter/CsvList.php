@@ -35,7 +35,7 @@ final class CsvList implements AddressSourceAdapterInterface
      */
     public function __construct(array $params)
     {
-        $this->emailAddresses = array_filter(explode(',', $params['csvList']));
+        $this->emailAddresses = array_filter(explode(',', (string) $params['csvList']));
     }
 
     public function getMailAddressesForBatchSending(): array
