@@ -24,6 +24,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension;
 
 class OpenDxpNewsletterExtension extends ConfigurableExtension
 {
+    #[\Override]
     public function getAlias(): string
     {
         return 'opendxp_newsletter';

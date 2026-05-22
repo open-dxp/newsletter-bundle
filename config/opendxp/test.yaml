@@ -1,4 +1,0 @@
-framework:
-    mailer:
-        transports:
-            opendxp_newsletter: 'null://null'

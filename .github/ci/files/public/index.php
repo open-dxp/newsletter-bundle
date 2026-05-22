@@ -14,19 +14,15 @@ declare(strict_types=1);
  * @license    https://www.gnu.org/licenses/gpl-3.0.html  GNU General Public License version 3 (GPLv3)
  */
 
-namespace OpenDxp\Bundle\NewsletterBundle\Document\Newsletter;
+use OpenDxp\Bootstrap;
 
-/**
- * @internal
- */
-final readonly class DefaultAddressSourceAdapterFactory implements AddressSourceAdapterFactoryInterface
-{
-    public function __construct(private string $className)
-    {
-    }
+require_once dirname(__DIR__) . '/vendor/autoload_runtime.php';
 
-    public function create(array $params): AddressSourceAdapterInterface
-    {
-        return new $this->className($params);
-    }
-}
+Bootstrap::setProjectRoot();
+
+return static function () {
+
+    Bootstrap::bootstrap();
+
+    return Bootstrap::kernel();
+};

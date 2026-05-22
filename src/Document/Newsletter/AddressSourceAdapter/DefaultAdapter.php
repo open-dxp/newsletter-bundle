@@ -44,7 +44,7 @@ class DefaultAdapter implements AddressSourceAdapterInterface
     protected function getListing(): ?Listing
     {
         if (null === $this->list) {
-            $objectList = '\\OpenDxp\\Model\\DataObject\\' . ucfirst($this->class) . '\\Listing';
+            $objectList = '\\OpenDxp\\Model\\DataObject\\' . ucfirst((string) $this->class) . '\\Listing';
             $this->list = new $objectList();
 
             $conditions = ['(newsletterActive = 1 AND newsletterConfirmed = 1)'];

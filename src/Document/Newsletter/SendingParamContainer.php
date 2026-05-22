@@ -19,25 +19,20 @@ namespace OpenDxp\Bundle\NewsletterBundle\Document\Newsletter;
 class SendingParamContainer
 {
     /**
-     * @internal
-     *
-     */
-    protected string $email;
-
-    /**
-     * @internal
-     *
-     */
-    protected ?array $params = null;
-
-    /**
      * SendingParamContainer constructor.
      *
      */
-    public function __construct(string $email, ?array $params = null)
+    public function __construct(
+        /**
+         * @internal
+         */
+        protected string $email,
+        /**
+         * @internal
+         */
+        protected ?array $params = null
+    )
     {
-        $this->email = $email;
-        $this->params = $params;
     }
 
     public function getEmail(): string

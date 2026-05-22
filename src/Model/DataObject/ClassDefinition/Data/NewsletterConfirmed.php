@@ -20,6 +20,7 @@ use OpenDxp\Model;
 
 class NewsletterConfirmed extends Model\DataObject\ClassDefinition\Data\Checkbox
 {
+    #[\Override]
     public function getFieldType(): string
     {
         return 'newsletterConfirmed';

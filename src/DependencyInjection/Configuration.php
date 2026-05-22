@@ -58,9 +58,7 @@ class Configuration implements ConfigurationInterface
                     ->defaultFalse()
                     ->beforeNormalization()
                         ->ifString()
-                        ->then(function ($v) {
-                            return (bool)$v;
-                        })
+                        ->then(fn($v) => (bool)$v)
                     ->end()
                 ->end()
                 ->arrayNode('source_adapters')

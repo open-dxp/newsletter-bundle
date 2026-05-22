@@ -25,11 +25,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class Installer extends SettingsStoreAwareInstaller
 {
-    protected const SETTINGS_STORE_SCOPE = 'opendxp_document_types';
+    protected const string SETTINGS_STORE_SCOPE = 'opendxp_document_types';
 
-    protected const DOCTYPE = 'newsletter';
+    protected const string DOCTYPE = 'newsletter';
 
-    protected const STANDARD_DOCUMENT_ENUM_TYPES = [
+    protected const array STANDARD_DOCUMENT_ENUM_TYPES = [
         'page',
         'link',
         'snippet',
@@ -38,16 +38,17 @@ class Installer extends SettingsStoreAwareInstaller
         'email',
     ];
 
-    protected const BUNDLE_EXTRA_DOCUMENT_ENUM_TYPES = [
+    protected const array BUNDLE_EXTRA_DOCUMENT_ENUM_TYPES = [
         'newsletter',
     ];
 
-    protected const USER_PERMISSION_CATEGORY = 'OpenDxp Newsletter Bundle';
+    protected const string USER_PERMISSION_CATEGORY = 'OpenDxp Newsletter Bundle';
 
-    protected const USER_PERMISSIONS = [
+    protected const array USER_PERMISSIONS = [
         'newsletters',
     ];
 
+    #[\Override]
     public function install(): void
     {
         $this->installDatabaseTable();
@@ -57,6 +58,7 @@ class Installer extends SettingsStoreAwareInstaller
         parent::install();
     }
 
+    #[\Override]
     public function uninstall(): void
     {
         // Only remove doctypes. Cleanup can be done by dev or command
@@ -118,7 +120,7 @@ class Installer extends SettingsStoreAwareInstaller
             $result = $db->executeQuery("SHOW COLUMNS FROM `documents` LIKE 'type'");
             $typeColumn = $result->fetchAllAssociative();
 
-            return explode("','", preg_replace("/(enum)\('(.+?)'\)/", '\\2', $typeColumn[0]['Type']));
+            return explode("','", (string) preg_replace("/(enum)\('(.+?)'\)/", '\\2', (string) $typeColumn[0]['Type']));
         } catch (\Exception) {
             // nothing to do here if it does not work we return the standard types
         }

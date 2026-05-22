@@ -34,9 +34,8 @@ use Symfony\Component\EventDispatcher\GenericEvent;
 
 class Newsletter
 {
-    public const SENDING_MODE_BATCH = 'batch';
-
-    public const SENDING_MODE_SINGLE = 'single';
+    public const string SENDING_MODE_BATCH = 'batch';
+    public const string SENDING_MODE_SINGLE = 'single';
 
     protected DataObject\ClassDefinition $class;
 
@@ -55,9 +54,7 @@ class Newsletter
             throw new InvalidArgumentException('No valid class identifier given (class name or ID)');
         }
 
-        if ($class instanceof DataObject\ClassDefinition) {
-            $this->setClass($class);
-        }
+        $this->setClass($class);
     }
 
     /**
@@ -205,7 +202,7 @@ class Newsletter
 
     protected function getClassName(): string
     {
-        return '\\OpenDxp\\Model\\DataObject\\' . ucfirst($this->getClass()->getName());
+        return '\\OpenDxp\\Model\\DataObject\\' . ucfirst((string) $this->getClass()->getName());
     }
 
     public function checkParams(array $params): bool
@@ -214,9 +211,9 @@ class Newsletter
             return false;
         }
 
-        if (strlen($params['email']) < 6 ||
-            !strpos($params['email'], '@') ||
-            !strpos($params['email'], '.')) {
+        if (strlen((string) $params['email']) < 6 ||
+            !strpos((string) $params['email'], '@') ||
+            !strpos((string) $params['email'], '.')) {
             return false;
         }
 
@@ -259,7 +256,7 @@ class Newsletter
         $object->setUserModification(0);
         $object->setUserOwner(0);
         $object->setPublished(true);
-        $object->setKey(File::getValidFilename(uniqid($object->getEmail(), true)));
+        $object->setKey(File::getValidFilename(uniqid((string) $object->getEmail(), true)));
 
         if (!$onlyCreateVersion) {
             $object->setCreationDate(time());
