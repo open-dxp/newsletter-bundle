@@ -1,37 +1,46 @@
 {
-  "name": "open-dxp/newsletter-bundle",
-  "license": "GPL-3.0+",
-  "type": "opendxp-bundle",
-  "description": "OpenDXP Newsletter Bundle",
-  "config": {
-    "sort-packages": true,
-    "preferred-install": {
-      "open-dxp/opendxp": "source",
-      "*": "dist"
+    "name": "open-dxp/newsletter-bundle",
+    "license": "GPL-3.0+",
+    "type": "opendxp-bundle",
+    "description": "OpenDXP Newsletter Bundle",
+    "config": {
+        "sort-packages": true,
+        "preferred-install": {
+            "open-dxp/opendxp": "source",
+            "*": "dist"
+        },
+        "allow-plugins": {
+            "symfony/runtime": true,
+            "php-http/discovery": false
+        }
+    },
+    "require": {
+        "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
+        "doctrine/dbal": "^3.6",
+        "open-dxp/admin-bundle": "^1.0",
+        "open-dxp/opendxp": "^1.0"
+    },
+    "require-dev": {
+        "symfony/dotenv": "^7.4",
+        "symfony/runtime": "^7.4",
+        "phpstan/phpstan": "^2.0",
+        "phpstan/phpstan-symfony": "^2.0.14"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenDxp\\Bundle\\NewsletterBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "kernel/Kernel.php"
+        ]
+    },
+    "extra": {
+        "opendxp": {
+            "bundles": [
+                "OpenDxp\\Bundle\\NewsletterBundle\\OpenDxpNewsletterBundle"
+            ]
+        }
     }
-  },
-  "prefer-stable": true,
-  "minimum-stability": "dev",
-  "require": {
-    "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
-    "doctrine/dbal": "^3.6",
-    "open-dxp/admin-bundle": "^1.0",
-    "open-dxp/opendxp": "^1.0"
-  },
-  "require-dev": {
-    "phpstan/phpstan": "^1.12.15",
-    "phpstan/phpstan-symfony": "^1.2.20"
-  },
-  "autoload": {
-    "psr-4": {
-      "OpenDxp\\Bundle\\NewsletterBundle\\": "src/"
-    }
-  },
-  "extra": {
-    "opendxp": {
-      "bundles": [
-        "OpenDxp\\Bundle\\NewsletterBundle\\OpenDxpNewsletterBundle"
-      ]
-    }
-  }
 }
