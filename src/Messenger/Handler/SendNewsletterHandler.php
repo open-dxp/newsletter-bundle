@@ -33,8 +33,10 @@ use Symfony\Contracts\Service\ServiceProviderInterface;
  */
 class SendNewsletterHandler
 {
-    public function __construct(protected array $opendxpConfig, protected ServiceProviderInterface $addressProvider)
-    {
+    public function __construct(
+        protected array $opendxpConfig,
+        protected ServiceProviderInterface $addressProvider
+    ) {
     }
 
     public function __invoke(SendNewsletterMessage $message): void

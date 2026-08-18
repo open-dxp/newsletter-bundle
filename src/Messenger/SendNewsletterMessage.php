@@ -21,8 +21,10 @@ namespace OpenDxp\Bundle\NewsletterBundle\Messenger;
  */
 class SendNewsletterMessage
 {
-    public function __construct(protected string $tmpStoreId, protected string $hostUrl)
-    {
+    public function __construct(
+        protected string $tmpStoreId,
+        protected string $hostUrl
+    ) {
     }
 
     public function getTmpStoreId(): string

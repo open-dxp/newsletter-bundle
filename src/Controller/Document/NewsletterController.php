@@ -44,8 +44,8 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 /**
  * @internal
  */
-#[Route('/newsletter', name: 'opendxp_bundle_newsletter_document_newsletter_')]
 #[IsGranted(NewsletterPermission::Newsletters->value)]
+#[Route('/newsletter', name: 'opendxp_bundle_newsletter_document_newsletter_')]
 class NewsletterController extends DocumentControllerBase
 {
     #[Route('/get-data-by-id', name: 'getdatabyid', methods: ['GET'])]

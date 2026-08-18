@@ -34,8 +34,10 @@ final class ReportAdapter implements AddressSourceAdapterInterface
 
     protected ?array $list = null;
 
-    public function __construct(protected string $emailFieldName, protected CustomReportAdapterInterface $reportAdapter)
-    {
+    public function __construct(
+        protected string $emailFieldName,
+        protected CustomReportAdapterInterface $reportAdapter
+    ) {
     }
 
     protected function getListing(): array
