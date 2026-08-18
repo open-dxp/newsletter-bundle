@@ -15,6 +15,14 @@ services:
         tags: ['controller.service_arguments']
 
     #
+    # HANDLERS
+    #
+    OpenDxp\Bundle\NewsletterBundle\Handler\:
+        resource: '../src/Handler'
+        bind:
+            $addressSourceAdapterFactories: '@opendxp_newsletter.address_source_adapter.factories'
+
+    #
     # INSTALLER
     #
     OpenDxp\Bundle\NewsletterBundle\Installer:

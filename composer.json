@@ -17,8 +17,8 @@
     "require": {
         "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
         "doctrine/dbal": "^3.6",
-        "open-dxp/admin-bundle": "^1.0",
-        "open-dxp/opendxp": "^1.0"
+        "open-dxp/opendxp": "^1.4",
+        "open-dxp/admin-bundle": "^1.4"
     },
     "require-dev": {
         "symfony/dotenv": "^7.4",
