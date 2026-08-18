@@ -18,9 +18,11 @@ namespace OpenDxp\Bundle\NewsletterBundle;
 
 use Doctrine\DBAL\ArrayParameterType;
 use Exception;
+use OpenDxp\Bundle\NewsletterBundle\Security\NewsletterPermission;
 use OpenDxp\Db;
 use OpenDxp\Extension\Bundle\Installer\SettingsStoreAwareInstaller;
 use OpenDxp\Model\Tool\SettingsStore;
+use OpenDxp\Security\PermissionAttribute;
 use Override;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -45,10 +47,6 @@ class Installer extends SettingsStoreAwareInstaller
     ];
 
     protected const string USER_PERMISSION_CATEGORY = 'OpenDxp Newsletter Bundle';
-
-    protected const array USER_PERMISSIONS = [
-        'newsletters',
-    ];
 
     #[Override]
     public function install(): void
@@ -79,12 +77,14 @@ class Installer extends SettingsStoreAwareInstaller
     {
         $db = Db::get();
 
-        foreach (self::USER_PERMISSIONS as $permission) {
+        foreach (NewsletterPermission::cases() as $permission) {
+            $key = PermissionAttribute::for($permission->value);
+
             // check if the permission already exists
-            $permissionExists = $db->executeStatement('SELECT `key` FROM users_permission_definitions WHERE `key` = :key', ['key' => $permission]);
+            $permissionExists = $db->executeStatement('SELECT `key` FROM users_permission_definitions WHERE `key` = :key', ['key' => $key]);
             if (!$permissionExists) {
                 $db->insert('users_permission_definitions', [
-                    $db->quoteIdentifier('key') => $permission,
+                    $db->quoteIdentifier('key') => $key,
                     $db->quoteIdentifier('category') => self::USER_PERMISSION_CATEGORY,
                 ]);
             }
@@ -95,9 +95,9 @@ class Installer extends SettingsStoreAwareInstaller
     {
         $db = Db::get();
 
-        foreach (self::USER_PERMISSIONS as $permission) {
+        foreach (NewsletterPermission::cases() as $permission) {
             $db->delete('users_permission_definitions', [
-                $db->quoteIdentifier('key') => $permission,
+                $db->quoteIdentifier('key') => PermissionAttribute::for($permission->value),
             ]);
         }
     }

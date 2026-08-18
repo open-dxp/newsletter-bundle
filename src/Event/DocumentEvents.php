@@ -26,10 +26,8 @@ class DocumentEvents
      *  - mailer | \OpenDxp\Mail\Mailer|null | newsletter specific mailer if enabled in system settings
      *
      * @Event("Symfony\Component\EventDispatcher\GenericEvent")
-     *
-     * @var string
      */
-    public const NEWSLETTER_PRE_SEND = 'opendxp.document.newsletter.pre_send';
+    public const string NEWSLETTER_PRE_SEND = 'opendxp.document.newsletter.pre_send';
 
     /**
      * Arguments:
@@ -39,8 +37,6 @@ class DocumentEvents
      *  - mailer | \OpenDxp\Mail\Mailer|null | newsletter specific swift mailer if enabled in system settings
      *
      * @Event("Symfony\Component\EventDispatcher\GenericEvent")
-     *
-     * @var string
      */
-    public const NEWSLETTER_POST_SEND = 'opendxp.document.newsletter.post_send';
+    public const string NEWSLETTER_POST_SEND = 'opendxp.document.newsletter.post_send';
 }
