@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+    name: newsletter-bundle
+    description: Newsletter community bundle integrates a basic newsletter framework
+        to OpenDXP documents.
+spec:
+    type: library
+    lifecycle: production
+    owner: team-opendxp
+    system: opendxp
