@@ -19,6 +19,7 @@ services:
     #
     OpenDxp\Bundle\NewsletterBundle\Handler\:
         resource: '../src/Handler'
+        exclude: '../src/Handler/**/*{Payload,Result}.php'
         bind:
             $addressSourceAdapterFactories: '@opendxp_newsletter.address_source_adapter.factories'
 
