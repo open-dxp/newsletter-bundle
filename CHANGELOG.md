@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.0
+- [CHORE] Replace Codeception with Pest and `open-dxp/test-foundation`
+- [CHORE] Require `open-dxp/opendxp` ^1.5
+
 ## 1.0.2
 - OpenDxp / Admin-Bundle ^1.4 support added
 
