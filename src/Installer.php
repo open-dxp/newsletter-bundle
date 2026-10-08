@@ -55,6 +55,9 @@ class Installer extends SettingsStoreAwareInstaller
         $enums = array_unique(array_merge($this->getCurrentEnumTypes(), self::BUNDLE_EXTRA_DOCUMENT_ENUM_TYPES));
         $this->modifyEnumTypes($enums);
         $this->addUserPermission();
+
+        $this->markMigrationsAsExecuted();
+
         parent::install();
     }
 
