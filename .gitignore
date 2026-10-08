@@ -26,3 +26,14 @@ Thumbs.db
 nbproject
 
 node_modules/
+
+######################
+# Tests              #
+######################
+# only the *.dist configuration is staged
+/phpunit.xml
+/.phpunit.cache/
+
+# agent instructions stay local
+/CLAUDE.md
+/.claude/

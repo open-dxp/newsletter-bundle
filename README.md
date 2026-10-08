@@ -14,6 +14,12 @@ This bundle provides a basic newsletter framework with the advantage to use all 
 
 ***
 
+## Installation
+- Execute: `$ bin/console opendxp:bundle:install OpenDxpNewsletterBundle`
+
+## Upgrading
+- Execute: `$ bin/console doctrine:migrations:migrate --prefix 'OpenDxp\Bundle\NewsletterBundle\Migrations'`
+
 ## Features in a Nutshell 
 - Add a basic newsletter functionality to OpenDXP.
 - Add a new OpenDXP-specific Document type to create newsletters with OpenDXP Documents (and all related concepts and features).

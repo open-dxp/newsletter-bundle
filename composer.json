@@ -10,21 +10,23 @@
             "*": "dist"
         },
         "allow-plugins": {
-            "symfony/runtime": true,
-            "php-http/discovery": false
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": false,
+            "symfony/runtime": true
         }
     },
     "require": {
         "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
         "doctrine/dbal": "^3.6",
-        "open-dxp/opendxp": "^1.4",
+        "open-dxp/opendxp": "^1.5",
         "open-dxp/admin-bundle": "^1.4"
     },
     "require-dev": {
-        "symfony/dotenv": "^7.4",
-        "symfony/runtime": "^7.4",
+        "open-dxp/test-foundation": "^1.0",
         "phpstan/phpstan": "^2.0",
-        "phpstan/phpstan-symfony": "^2.0.14"
+        "phpstan/phpstan-symfony": "^2.0.14",
+        "symfony/dotenv": "^7.4",
+        "symfony/runtime": "^7.4"
     },
     "autoload": {
         "psr-4": {
@@ -32,9 +34,9 @@
         }
     },
     "autoload-dev": {
-        "classmap": [
-            "kernel/Kernel.php"
-        ]
+        "psr-4": {
+            "OpenDxp\\Bundle\\NewsletterBundle\\Tests\\": "tests/"
+        }
     },
     "extra": {
         "opendxp": {
