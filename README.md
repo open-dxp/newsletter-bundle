@@ -19,6 +19,8 @@ This bundle provides a basic newsletter framework with the advantage to use all 
 
 ## Upgrading
 - Execute: `$ bin/console doctrine:migrations:migrate --prefix 'OpenDxp\Bundle\NewsletterBundle\Migrations'`
+- Read the [changelog](CHANGELOG.md) before you update.
+- Coming from an earlier package? Read [Migrating to OpenDXP](docs/Migrating_to_OpenDXP.md).
 
 ## Features in a Nutshell 
 - Add a basic newsletter functionality to OpenDXP.
@@ -27,9 +29,9 @@ This bundle provides a basic newsletter framework with the advantage to use all 
 - Provide support for setting up a subscribe/confirm/unsubscribe workflow.
 
 ## Documentation Overview
-* [Installation](./doc/01_Installation.md)
-* [Newsletter Documents](./doc/05_Newsletter_Documents.md)
-* [Newsletter Configuration](./doc/19_Newsletter_Config.md)
+* [Installation](./docs/01_Installation.md)
+* [Newsletter Documents](./docs/05_Newsletter_Documents.md)
+* [Newsletter Configuration](./docs/19_Newsletter_Config.md)
 
 ***
 
